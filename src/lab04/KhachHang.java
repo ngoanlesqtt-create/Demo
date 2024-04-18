@@ -42,5 +42,9 @@ public class KhachHang {
     public KhachHang timKhachHangTheoMa(int ma) {
         return null;
     }
+    
+    public float getTienDien(){
+        return this.tienDien;
+    }
 
 }

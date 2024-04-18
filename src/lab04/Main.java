@@ -16,15 +16,17 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Phuong a = new Phuong();
-//        Object[][] data = a.getData();
-//        for (int i = 0; i <= 6; i++) {
-//            for (int j = 0; j <= 3; j++) {
-//                System.out.println(data[i][j]);
-//            }
-//        }
-        Object [][]nhanVienTimTheoMa=a.timKhachHangTheoMa(123);
-        for(int i=0;i<=4;i++)
-            System.out.println(nhanVienTimTheoMa[0][i]);
+        //        Object[][] data = a.getData();
+        //        for (int i = 0; i <= 6; i++) {
+        //            for (int j = 0; j <= 3; j++) {
+        //                System.out.println(data[i][j]);
+        //            }
+        //        }
+        //        Object [][]nhanVienTimTheoMa=a.timKhachHangTheoMa(123);
+        //        for(int i=0;i<=4;i++)
+        //            System.out.println(nhanVienTimTheoMa[0][i]);
+        Object[][] tienDienTrungBinh=a.tinhTienDienTrungBinh();
+        System.out.println(tienDienTrungBinh[0][0]);
     }
 
 }

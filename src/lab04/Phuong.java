@@ -46,7 +46,6 @@ public class Phuong {
             tienDien[i][4] = this.danhSachKhachHang.get(i).tinhTienDien();
         }
         return tienDien;
-
     }
 
     public Object[][] timKhachHangTheoMa(int ma) {
@@ -65,6 +64,20 @@ public class Phuong {
             khachHangTheoMa[0][i] = khTheoMa.getThongTin()[i];
         }
         return khachHangTheoMa;
+    }
+
+    public Object[][] tinhTienDienTrungBinh() {
+        this.nhap();
+        Object tienDienTrungBinh[][] = new Object[1][1];
+        float tongTienDien = 0;
+        for (KhachHang khachHang : this.danhSachKhachHang) {
+            khachHang.tinhTienDien();
+            tongTienDien += khachHang.getTienDien();
+        }
+
+        tienDienTrungBinh[0][0] = tongTienDien / this.danhSachKhachHang.size();
+
+        return tienDienTrungBinh;
     }
 
 }
