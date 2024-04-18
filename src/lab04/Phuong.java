@@ -50,16 +50,19 @@ public class Phuong {
     }
 
     public Object[][] timKhachHangTheoMa(int ma) {
+        this.nhap();
         Object[][] khachHangTheoMa = new Object[1][5];
         KhachHang khTheoMa = new KhachHang();
         for (KhachHang khachHang : this.danhSachKhachHang) {
             if (khachHang.timKhachHangTheoMa(ma) != null) {
                 khTheoMa = khachHang.timKhachHangTheoMa(ma);
+            } else {
+                khachHangTheoMa[0][0] = "Khong tim thay khach hang theo ma";
             }
         }
-
+        khTheoMa.tinhTienDien();
         for (int i = 0; i <= 4; i++) {
-            khachHangTheoMa[1][i] = khTheoMa.getThongTin()[i];
+            khachHangTheoMa[0][i] = khTheoMa.getThongTin()[i];
         }
         return khachHangTheoMa;
     }

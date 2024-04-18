@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
  * @author PC
  */
 public class JFrame extends javax.swing.JFrame {
-    
+
     private Phuong phuong;
     private String[] column = {"Ma khach hang", "Ho ten", " Chi so cu", "Chi so moi", "Tien dien"};
     private DefaultTableModel data;
@@ -140,13 +140,11 @@ public class JFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int maNV = Integer.parseInt(maNhanVien.getText());
-        if (phuong.timKhachHangTheoMa(maNV) != null) {
-            data = new DefaultTableModel(phuong.timKhachHangTheoMa(maNV), column);
-            bangNhanVien.setModel(data);
-        } else{
-             bangNhanVien.setModel(data);
-        }
-           
+
+        data = new DefaultTableModel(phuong.timKhachHangTheoMa(maNV), column);
+        bangNhanVien.setModel(data);
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
