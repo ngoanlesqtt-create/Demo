@@ -80,4 +80,88 @@ public class Phuong {
         return tienDienTrungBinh;
     }
 
+    private float timTienDienLonNhat() {
+        this.nhap();
+        for (KhachHang khachHang : this.danhSachKhachHang) {
+            khachHang.tinhTienDien();
+        }
+        float tienDienLonNhat = this.danhSachKhachHang.get(0).getTienDien();
+        for (KhachHang khachHang : this.danhSachKhachHang) {
+            if (khachHang.getTienDien() > tienDienLonNhat) {
+                tienDienLonNhat = khachHang.getTienDien();
+            }
+        }
+        return tienDienLonNhat;
+    }
+
+    private ArrayList timDSKHCoTienDienLonNhat() {
+        float tienDienLonNhat = this.timTienDienLonNhat();
+        ArrayList<KhachHang> danhSachKHCoTienDienLonNhat = new ArrayList();
+        for (KhachHang khachHang : this.danhSachKhachHang) {
+            if (khachHang.getTienDien() == tienDienLonNhat) {
+                danhSachKHCoTienDienLonNhat.add(khachHang);
+            }
+        }
+        return danhSachKHCoTienDienLonNhat;
+    }
+
+    public Object[][] timCacKHCoTienDienLonNhat() {
+        ArrayList<KhachHang> danhSachKhachHangCoTienDienLonNhat = this.timDSKHCoTienDienLonNhat();
+        Object[][] danhSachKhachHangCoTienDienLonNhatTrongObject = new Object[danhSachKhachHangCoTienDienLonNhat.size()][5];
+        for (int i = 0; i <= danhSachKhachHangCoTienDienLonNhat.size() - 1; i++) {
+            for (int j = 0; j <= 4; j++) {
+                danhSachKhachHangCoTienDienLonNhatTrongObject[i][j] = danhSachKhachHangCoTienDienLonNhat.get(i).getThongTin()[j];
+            }
+        }
+
+        return danhSachKhachHangCoTienDienLonNhatTrongObject;
+    }
+
+    private ArrayList timDanhSachHoSanXuat() {
+        this.nhap();
+        ArrayList<SanXuat> danhSachHoSanXuat = new ArrayList();
+        for (KhachHang khachHang : this.danhSachKhachHang) {
+            if (khachHang instanceof SanXuat) {
+                danhSachHoSanXuat.add((SanXuat) khachHang);
+            }
+        }
+        return danhSachHoSanXuat;
+    }
+
+    private float timTienDienNhoNhatCuaHoSanXuat(ArrayList<SanXuat> danhSachHoSanXuat) {
+        for (KhachHang khachHang : this.danhSachKhachHang) {
+            khachHang.tinhTienDien();
+        }
+        float tienDienNhoNhat = danhSachHoSanXuat.get(0).getTienDien();
+        for (SanXuat sanXuat : danhSachHoSanXuat) {
+            if (sanXuat.getTienDien() < tienDienNhoNhat) {
+                tienDienNhoNhat = sanXuat.getTienDien();
+            }
+        }
+        return tienDienNhoNhat;
+    }
+
+    private ArrayList timDanhSachHoSanXuatCoTienDienNhoNhat() {
+        ArrayList<SanXuat> danhSachHoSanXuat = this.timDanhSachHoSanXuat();
+        float tienDienNhoNhat = this.timTienDienNhoNhatCuaHoSanXuat(danhSachHoSanXuat);
+        ArrayList<SanXuat> danhSachHoSanXuatCoTienDienNhoNhat = new ArrayList();
+        for (SanXuat sanXuat : danhSachHoSanXuat) {
+            if (sanXuat.getTienDien() == tienDienNhoNhat) {
+                danhSachHoSanXuatCoTienDienNhoNhat.add(sanXuat);
+            }
+        }
+        return danhSachHoSanXuatCoTienDienNhoNhat;
+    }
+
+    public Object[][] timDanhSachHoSanXuatCoTienDienNhoNhatTrongObject() {
+        ArrayList<SanXuat> danhSachHoSanXuatCoTienDienNhoNhat = this.timDanhSachHoSanXuatCoTienDienNhoNhat();
+        Object[][] danhSachHoSanXuatCoTienDienNhoNhatobject = new Object[danhSachHoSanXuatCoTienDienNhoNhat.size()][5];
+        for (int i = 0; i <= danhSachHoSanXuatCoTienDienNhoNhat.size() - 1; i++) {
+            for (int j = 0; j <= 4; j++) {
+                danhSachHoSanXuatCoTienDienNhoNhatobject[i][j] = danhSachHoSanXuatCoTienDienNhoNhat.get(i).getThongTin()[j];
+            }
+        }
+        return danhSachHoSanXuatCoTienDienNhoNhatobject;
+    }
+
 }
